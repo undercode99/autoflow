@@ -1,0 +1,22 @@
+step:
+- name : Step 1
+  type : ssh
+  env  : ssh-local
+  save_output: false
+  retry_error: 10
+  # if_step_error: continue
+  commands:
+  - /home/xxx/anaconda3/envs/levelup/bin/python test_run.py
+  - echo 'berhasil'
+  - ls -lah
+
+
+- name : Step 3 Execute ssh
+  type : ssh 
+  env  : my-ssh
+  commands:
+    - echo "Check IP Address ..."
+    - ifconfig
+
+schedule: 
+- "@every 10s"

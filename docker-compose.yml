@@ -1,0 +1,13 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "8882:8882"
+    environment: 
+      TZ: ${TIME_ZONE}
+      SECRET_KEY: ${SECRET_KEY}
+      PG_DSN: ${PG_DSN}
+      GIN_MODE: ${GIN_MODE}
+      PORT: "8882"
+    restart: on-failure
